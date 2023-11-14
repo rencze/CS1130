@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html>
+<h1>Add 2 numbers</h1> <br>
+    <p>
+
+        <label for="n1">First number:</label><br>
+        <input type="number" id="n1"  onkeydown=computeSum()><br>
+        <label for="n2">Second number:</label><br>
+        <input type="number" id="n2" onkeydown=computeSum()><br>
+
+        <button onclick="computeSum()"> Compute Sum</button> <br>
+
+    </p>
+
+    <p>
+        <label for = "sumb">Sum:</label>
+        <input id ="sumb" readonly type ="number">
+    </p>
+
+  <script>
+  function computeSum(){
+    var n1,n2,sum;
+
+    n1 = document.getElementById("n1").value*1;
+    n2 = document.getElementById("n2").value*1;
+
+    sum = n1 + n2;
+
+    document.getElementById("sumb").value = sum;
+  }
+  </script>
+
+
+  </body>
+  </html>

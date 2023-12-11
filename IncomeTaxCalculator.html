@@ -114,6 +114,45 @@
             color: #45aaf2;
         }
 
+        #dlgConfirmCancel,
+        #dlgAreYouSure {
+            display: ;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        #dlgConfirmCancel form,
+        #dlgAreYouSure form {
+            padding: 20px;
+        }
+
+        #dlgConfirmCancel h4,
+        #dlgAreYouSure h4 {
+            margin-bottom: 20px;
+        }
+
+        #dlgConfirmCancel button,
+        #dlgAreYouSure button {
+            background-color: #348bd7;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-style: outset;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        #dlgConfirmCancel button:hover,
+        #dlgAreYouSure button:hover {
+            background-color: #54d7d3;
+        }
+
     </style>
 </head>
 
@@ -129,12 +168,20 @@
             <input type="number" id="taxRate" placeholder="Enter tax rate">
         </div>
         <button onclick="calculateTax()">Calculate</button>
-        <button onclick="clearForm()">Clear Values</button>
+        <button id="btnclearvalues">Clear Values</button>
         <div class="result" id="result"></div>
     </div>
 
+    <dialog id="dlgConfirmCancel">
+        <form method="dialog">
+            <h4 id="dlgmsg"></h4>
+            <button id="btnConfirm" type="button">Confirm</button>
+            <button id="btnCancel" type="button">Cancel</button>
+        </form>
+    </dialog>
+
     <script>
-        function calculateTax() {
+         function calculateTax() {
             var income = document.getElementById('income').value;
             var taxRate = document.getElementById('taxRate').value;
             var tax = (income * taxRate) / 100;
@@ -147,6 +194,21 @@
             document.getElementById('taxRate').value = '';
             document.getElementById('result').innerHTML = '';
         }
+
+        document.getElementById("btnclearvalues").addEventListener("click", () => {
+            document.getElementById("dlgmsg").innerHTML = "Clear the Values?";
+            dlgConfirmCancel.showModal();
+        });
+
+        document.getElementById("btnConfirm").addEventListener("click", () => {
+            clearForm();
+            dlgConfirmCancel.close("confirm");
+        });
+
+        document.getElementById("btnCancel").addEventListener("click", () => {
+            dlgConfirmCancel.close("cancel");
+        });
+   
     </script>
 
   

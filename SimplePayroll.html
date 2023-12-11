@@ -103,36 +103,34 @@
             transition: all 0.3s ease-in-out;
         }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+            @keyframes gradientAnimation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;    
+                }
+            }
 
-h1:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-}
-a {
-            text-align: center;
-            display: block;
-            margin-top: 20px;
-            color: #333;
-            text-decoration: none;
-        }
+            h1:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            }
+            a {
+                        text-align: center;
+                        display: block;
+                        margin-top: 20px;
+                        color: #333;
+                        text-decoration: none;
+                    }
 
-        a:hover {
-            color: #45aaf2;
-        }
+                    a:hover {
+                        color: #45aaf2;
+                    }
   
-
-
  
     </style>
 </head>
@@ -185,7 +183,7 @@ a {
 
     <script>
         document.getElementById("InputEmployee").addEventListener("click", function () {
-            add_employee();
+            AddEmployee();
             clearelements();
         });
 
@@ -230,7 +228,7 @@ a {
             cell7.innerHTML = netpay;
         }
 
-        function add_employee() {
+        function AddEmployee() {
             var name, days, rate, deduction, table, grosspay, netpay;
 
             table = document.getElementById("Employee").value;
@@ -247,14 +245,7 @@ a {
             } else {
                 inserting(name, days, rate, deduction, grosspay, netpay);
             }
-        }
-
-        function clearelements() {   
-            document.getElementById("name").value = ' ';
-            document.getElementById("days").value = ' ';
-            document.getElementById("rate").value = ' ';
-            document.getElementById("deduction").value = ' ';
-        }   
+        }        
 
         function rewrite() {
             var table = document.getElementById("Employee");

@@ -129,13 +129,23 @@
       <button onclick="feetToMeters()">Convert</button>
       <div id="feetToMetersResult" class="result"></div>
 
-      <!-- Add Clear button -->
-      <button onclick="clearForm()">Clear</button>
+  
+     
+      <button id="btnclearvalues" >Clear Values</button>
 
-      <!-- Link to Home Page.html -->
+     
       <a href="HomePage.html">Go to Home Page</a>
     </div>
   </div>
+
+  <dialog id="dlgConfirmCancel">
+    <form method="dialog">
+        <h4 id="dlgmsg"></h4>
+        <button id="btnConfirm" type="button">Confirm</button>
+        <button id="btnCancel" type="button">Cancel</button>
+    </form>
+</dialog>
+
 
   <script>
     function celsiusToFahrenheit() {
@@ -172,6 +182,21 @@
       document.getElementById('metersToFeetResult').innerHTML = '';
       document.getElementById('feetToMetersResult').innerHTML = '';
     }
+    
+    document.getElementById("btnclearvalues").addEventListener("click", () => {
+            document.getElementById("dlgmsg").innerHTML = "Clear the Values?";
+            dlgConfirmCancel.showModal();
+        });
+    
+        document.getElementById("btnConfirm").addEventListener("click", () => {
+            clearForm();
+            dlgConfirmCancel.close("confirm");
+        });
+
+        document.getElementById("btnCancel").addEventListener("click", () => {
+            dlgConfirmCancel.close("cancel");
+        });
+
   </script>
 </body>
 </html>
